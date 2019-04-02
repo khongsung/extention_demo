@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "CTMS",
+  "version": "1.0",
+  "content_scripts": [
+   {
+     "matches": ["http://ctms.fithou.net.vn/KetquaHoctap.aspx?sid="],
+     "js": ["contentScript.js"]
+   }
+ ]
+}
