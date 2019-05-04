@@ -1,5 +1,6 @@
 var hang = document.querySelectorAll("table.RowEffect tbody tr");
 var html = '';
+
 //tinh tb tung mon, tim mon truot
 var highlight = (function() {
     hang.forEach(function(i, j) {
@@ -88,7 +89,7 @@ function TBCTLSytem4() {
 	let result;
 	dataLast.forEach(function(i, j) {
 		let td = i.children;
-        if(td[8].innerHTML  === "A") {
+        if(td[8].innerHTML  === "A" || td[8].innerHTML  === "A+") {
         	kq += 4 * Number(td[1].innerHTML);
         } else if(td[8].innerHTML  === "B") {
         	kq += 3 * Number(td[1].innerHTML);
@@ -96,6 +97,12 @@ function TBCTLSytem4() {
         	kq += 2 * Number(td[1].innerHTML);
         } else if(td[8].innerHTML  === "D") {
         	kq += 1 * Number(td[1].innerHTML);
+        } else if(td[8].innerHTML  === "B+") {
+            kq += 3.5 * Number(td[1].innerHTML);
+        } else if(td[8].innerHTML  === "C+") {
+            kq += 2.5 * Number(td[1].innerHTML);
+        } else if(td[8].innerHTML  === "D+") {
+            kq += 1.5 * Number(td[1].innerHTML);
         } else {
         	kq += 0;
         }
@@ -117,14 +124,22 @@ function convertToWord(int) {
     let result = '';
     if (int < 4.0) {
         return result = "F";
-    } else if (int >= 4.0 && int <= 5.4) {
+    } else if (int >= 4.0 && int <= 4.9) {
         return result = "D";
-    } else if (int >= 5.5 && int <= 6.9) {
+    } else if (int >= 5.5 && int <= 6.4) {
         return result = "C";
-    } else if (int >= 7.0 && int <= 8.4) {
+    } else if (int >= 7.0 && int <= 7.9) {
         return result = "B";
-    } else if (int >= 8.5 && int <= 10) {
+    } else if (int >= 8.5 && int <= 9.4) {
     	return result = "A";
+    } else if (int >= 5.0 && int <= 5.4) {
+        return result = "D+";
+    } else if (int >= 6.5 && int <= 6.9) {
+        return result = "C+";
+    } else if (int >= 8.0 && int <= 8.4) {
+        return result = "B+";
+    } else if (int >= 9.5 && int <= 10) {
+        return result = "A+";
     } else {
         return result = '';
     }
